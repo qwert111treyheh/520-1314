@@ -5,6 +5,7 @@
   <title>获取模组·探索世界 | 809267403</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    /* =========== 全局 =========== */
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:#f7f9fc;color:#333}
     header{background:#2c3e50;color:#fff;padding:20px;text-align:center}
     header h1{margin:0 0 10px;font-size:24px}
@@ -47,7 +48,7 @@
   </div>
 </header>
 
-<!-- 面板 1：资源仓库 -->
+<!-- ================= 面板 1：资源仓库 ================= -->
 <section id="panel-repo" class="active">
   <h2>我的世界资源包</h2>
   <p>精选材质、光影、UI，适配基岩多版本。</p>
@@ -62,7 +63,7 @@
   <a class="button" onclick="openModal('模组')">查看模组</a>
 </section>
 
-<!-- 面板 2：群友广场 -->
+<!-- ================= 面板 2：群友广场 ================= -->
 <section id="panel-plaza">
   <h2>群友评论墙</h2>
   <div class="warn">由于 Q 群曾遭恶意飞踢，现人数较少，欢迎加入！</div>
@@ -102,7 +103,7 @@
     <p>氛围友好，小白提问也不会被怼，必须点赞！</p>
   </div>
 
-<div class="review">
+  <div class="review">
     <div class="avatar" style="background:#a29bfe">爱</div>
     <div class="stars">★★★★★</div>
     <div class="name">小爱(匿名)</div>
@@ -122,21 +123,40 @@
     <div class="name">阿呆(匿名)</div>
     <p>进群一周就凑齐全套光影，太效率了！</p>
   </div>
+  <!-- ===== Gitalk 留言区开始（已填 Client ID） ===== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<div id="gitalk-container" style="margin-top:30px;"></div>
+<script>
+const gitalk = new Gitalk({
+  clientID: 'Ov23liCEBAuim12HCFy8',
+  clientSecret: '',               // 前端可留空
+  repo: '520-1314',
+  owner: 'qwert111treyheh',
+  admin: ['qwert111treyheh'],
+  id: 'plaza',                    // 用固定标识，避免换 URL 时丢失评论
+  language: 'zh-CN',
+  distractionFreeMode: false
+});
+gitalk.render('gitalk-container');
+</script>
+<!-- ===== Gitalk 留言区结束 ===== -->
+
 </section>
 
-<!-- 面板 3：群组二维码 -->
+<!-- ================= 面板 3：群组二维码 ================= -->
 <section id="panel-qr">
   <h2>扫码加入群 809267403</h2>
   <div class="qr-wrapper">
-    <!-- 把 qrcode.png 上传到仓库根目录后替换下面链接 -->
-    <img src="https://github.com/qwert111treyheh/520-1314/blob/main/qrcode_1755900326711.jpg" alt="如果打不开，实属抱歉">
+    <!-- 已指向仓库里的二维码文件 -->
+    <img src="https://raw.githubusercontent.com/qwert111treyheh/520-1314/main/qrcode_1755900326711.jpg" alt="QQ群二维码">
   </div>
   <p style="text-align:center;margin-top:12px">
     <a class="button" href="https://qm.qq.com/cgi-bin/qm/qr?k=5W4NZ-809267403" target="_blank">手动加群</a>
   </p>
 </section>
 
-<!-- 面板 4：名人名言 -->
+<!-- ================= 面板 4：名人名言 ================= -->
 <section id="panel-quotes">
   <h2>名人名言</h2>
 
@@ -195,6 +215,5 @@
   function closeModal(){ document.getElementById('modal').style.display='none'; }
   window.onclick=function(e){ if(e.target===document.getElementById('modal')) closeModal(); }
 </script>
-
 </body>
 </html>
