@@ -123,24 +123,26 @@
     <div class="name">阿呆(匿名)</div>
     <p>进群一周就凑齐全套光影，太效率了！</p>
   </div>
-  <!-- ===== Gitalk 留言区开始（已填 Client ID） ===== -->
+  <!-- ===== Gitalk 自动创建 Issue 完整片段 ===== -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin-top:30px;"></div>
 <script>
 const gitalk = new Gitalk({
   clientID: 'Ov23liCEBAuim12HCFy8',
-  clientSecret: '',               // 前端可留空
+  clientSecret: '',                     // 前端可留空
   repo: '520-1314',
   owner: 'qwert111treyheh',
   admin: ['qwert111treyheh'],
-  id: 'plaza',                    // 用固定标识，避免换 URL 时丢失评论
+  id: 'plaza',                          // 固定标识，确保唯一
   language: 'zh-CN',
-  distractionFreeMode: false
+  distractionFreeMode: false,
+  // 关键：首次访问自动创建 Issue
+  createIssueManually: false            // 默认值即可
 });
 gitalk.render('gitalk-container');
 </script>
-<!-- ===== Gitalk 留言区结束 ===== -->
+<!-- ===== 片段结束 ===== -->
 
 </section>
 
