@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>获取模组·探索世界 | 809267403</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:#f7f9fc;color:#333}
+  header{background:#2c3e50;color:#fff;padding:20px;text-align:center}
+  header h1{margin:0 0 10px;font-size:24px}
+  header a{color:#fff;text-decoration:none}
+  .tabs{display:flex;justify-content:center;gap:20px;margin:-10px 0 20px}
+  .tabs button{background:#fff;border:none;padding:8px 18px;border-radius:20px;font-weight:bold;color:#2c3e50;cursor:pointer}
+  .tabs button.active{background:#3498db;color:#fff}
+  section{max-width:800px;margin:20px auto;padding:20px;background:#fff;border-radius:8px;display:none}
+  section.active{display:block}
+  .button{display:inline-block;margin-top:10px;padding:10px 15px;background:#3498db;color:#fff;border-radius:4px;text-decoration:none}
+
+  /* 评价墙 */
+  .review{margin:20px 0;text-align:center}
+  .avatar{width:48px;height:48px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:20px}
+  .stars{color:#f1c40f;font-size:20px;margin-bottom:6px}
+  .name{font-weight:bold;font-size:14px;color:#555}
+  .warn{background:#fff3cd;color:#856404;padding:10px;border-left:4px solid #ffc107;margin-bottom:16px;font-size:14px}
+
+  /* 弹窗 */
+  .modal{position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none}
+  .modal-content{background:#fff;margin:15% auto;padding:20px;width:300px;border-radius:8px;text-align:center}
+  .close{float:right;font-size:24px;cursor:pointer}
+
+  /* 底部版权 */
+  footer{max-width:800px;margin:40px auto 20px;padding:0 20px;text-align:center;font-size:14px;color:#777}
+  footer a{color:#3498db;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>获取模组·探索世界</h1>
+  <p>联系邮箱：<a href="mailto:e12302022@outlook.com">e12302022@outlook.com</a></p>
+  <div class="tabs">
+    <button class="active" onclick="showPanel('repo')">资源仓库</button>
+    <button onclick="showPanel('plaza')">群友广场</button>
+  </div>
+</header>
+
+<!-- 面板 1：资源仓库 -->
+<section id="panel-repo" class="active">
+  <h2>我的世界资源包</h2>
+  <p>精选材质、光影、UI，适配基岩与 Java 多版本。</p>
+  <a class="button" onclick="openModal('资源包')">查看资源包</a>
+
+  <h2>我的世界行为包</h2>
+  <p>行为包让你的世界更有趣！包含自定义生物、机制、任务等内容。</p>
+  <a class="button" onclick="openModal('行为包')">查看行为包</a>
+
+  <h2>铁锈战争模组</h2>
+  <p>为《铁锈战争》打造的模组合集，扩展单位、地图与玩法。</p>
+  <a class="button" onclick="openModal('模组')">查看模组</a>
+</section>
+
+<!-- 面板 2：群友广场 -->
+<section id="panel-plaza">
+  <h2>群友五星好评墙</h2>
+  <div class="warn">由于 Q 群曾遭恶意飞踢，现人数较少，欢迎回家！</div>
+
+  <div class="review">
+    <div class="avatar" style="background:#ff7675">小</div>
+    <div class="stars">★★★★★</div>
+    <div class="name">小美(匿名)</div>
+    <p>群文件分类超清晰，一秒找到想要的材质包！</p>
+  </div>
+
+  <div class="review">
+    <div class="avatar" style="background:#74b9ff">张</div>
+    <div class="stars">★★★★☆</div>
+    <div class="name">小张(匿名)</div>
+    <p>管理员超耐心，手把手教装行为包，爱了爱了！</p>
+  </div>
+
+  <div class="review">
+    <div class="avatar" style="background:#55efc4">杰</div>
+    <div class="stars">★★★★★</div>
+    <div class="name">阿杰(匿名)</div>
+    <p>铁锈模组更新速度飞快，群战天天不重样！</p>
+  </div>
+
+  <div class="review">
+    <div class="avatar" style="background:#a29bfe">王</div>
+    <div class="stars">★★★★☆</div>
+    <div class="name">老王(匿名)</div>
+    <p>氛围友好，小白提问也不会被怼，必须点赞！</p>
+  </div>
+
+  <div class="review">
+    <div class="avatar" style="background:#ffeaa7">智</div>
+    <div class="stars">★★★★★</div>
+    <div class="name">小智(匿名)</div>
+    <p>群内活动多到爆，建筑大赛奖品还很香！</p>
+  </div>
+
+  <div class="review">
+    <div class="avatar" style="background:#fab1a0">呆</div>
+    <div class="stars">★★★★☆</div>
+    <div class="name">阿呆(匿名)</div>
+    <p>进群一周就凑齐全套光影，太效率了！</p>
+  </div>
+
+  <p style="text-align:center;margin-top:30px">
+    <a class="button" href="https://qm.qq.com/cgi-bin/qm/qr?k=5W4NZ-809267403" target="_blank">一键加群 809267403</a>
+  </p>
+</section>
+
+<!-- 统一弹窗 -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <p><strong>请加入群组获取完整内容</strong></p>
+    <p>群组ID：<strong>809267403</strong></p>
+    <p>加入后可在群文件或群公告中下载！</p>
+  </div>
+</div>
+
+<!-- 底部版权 -->
+<footer>
+  咨询邮箱：<a href="mailto:e12302022@outlook.com">e12302022@outlook.com</a><br>
+  © 2025 809267403 群组 · 由 Kimi AI 制作
+</footer>
+
+<script>
+  /* 面板切换 */
+  function showPanel(id){
+    ['repo','plaza'].forEach(p=>{
+      document.getElementById('panel-'+p).classList.toggle('active',p===id);
+      document.querySelector(`.tabs button:nth-child(${p==='repo'?1:2})`).classList.toggle('active',p===id);
+    });
+  }
+  /* 弹窗控制 */
+  function openModal(){ document.getElementById('modal').style.display='block'; }
+  function closeModal(){ document.getElementById('modal').style.display='none'; }
+  window.onclick=function(e){ if(e.target==document.getElementById('modal')) closeModal(); }
+</script>
+
+</body>
+</html>
