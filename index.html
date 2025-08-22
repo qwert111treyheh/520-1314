@@ -9,8 +9,8 @@
     header{background:#2c3e50;color:#fff;padding:20px;text-align:center}
     header h1{margin:0 0 10px;font-size:24px}
     header a{color:#fff;text-decoration:none}
-    .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:-10px 0 20px}
-    .tabs button{background:#fff;border:none;padding:8px 16px;border-radius:20px;font-weight:bold;color:#2c3e50;cursor:pointer}
+    .tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:-10px 0 20px}
+    .tabs button{background:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:bold;color:#2c3e50;cursor:pointer;font-size:14px}
     .tabs button.active{background:#3498db;color:#fff}
     section{max-width:800px;margin:20px auto;padding:20px;background:#fff;border-radius:8px;display:none}
     section.active{display:block}
@@ -22,6 +22,10 @@
     .avatar{width:48px;height:48px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:20px}
     .stars{color:#f1c40f;font-size:20px;margin-bottom:6px}
     .name{font-weight:bold;font-size:14px;color:#555}
+    .quote-box{border-left:4px solid #3498db;padding:12px 16px;margin:16px 0;background:#f1f9ff}
+    .quote-text{font-size:16px;font-weight:600;margin-bottom:6px}
+    .quote-trans{color:#555;font-size:14px;margin-bottom:6px}
+    .quote-bg{font-size:13px;color:#666}
     .modal{position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none}
     .modal-content{background:#fff;margin:15% auto;padding:20px;width:300px;border-radius:8px;text-align:center}
     .close{float:right;font-size:24px;cursor:pointer}
@@ -39,6 +43,7 @@
     <button class="active" onclick="showPanel('repo')">资源仓库</button>
     <button onclick="showPanel('plaza')">群友广场</button>
     <button onclick="showPanel('qr')">群组二维码</button>
+    <button onclick="showPanel('quotes')">名人名言</button>
   </div>
 </header>
 
@@ -59,7 +64,7 @@
 
 <!-- 面板 2：群友广场 -->
 <section id="panel-plaza">
-  <h2>群友评论墙</h2>
+  <h2>群友五星好评墙</h2>
   <div class="warn">由于 Q 群曾遭恶意飞踢，现人数较少，欢迎加入！</div>
 
   <div class="review">
@@ -80,7 +85,7 @@
     <div class="avatar" style="background:#55efc4">杰</div>
     <div class="stars">★★★★★</div>
     <div class="name">阿杰(匿名)</div>
-    <p>铁锈模组更新速度飞快，打铁mod天天不重样！</p>
+    <p>铁锈模组更新速度飞快，天天都打铁，能上下爽一爽！</p>
   </div>
 
   <div class="review">
@@ -88,6 +93,13 @@
     <div class="stars">★★★★☆</div>
     <div class="name">老王(匿名)</div>
     <p>氛围友好，小白提问也不会被怼，必须点赞！</p>
+  </div>
+
+<div class="review">
+    <div class="avatar" style="background:#a29bfe">爱</div>
+    <div class="stars">★★★★★</div>
+    <div class="name">小爱(匿名)</div>
+    <p>群主很幽默，还能和管理员打成一片，不过群主更可爱</p>
   </div>
 
   <div class="review">
@@ -109,12 +121,43 @@
 <section id="panel-qr">
   <h2>扫码加入群 809267403</h2>
   <div class="qr-wrapper">
-    <!-- 把 qrcode.png 上传到仓库根目录后替换下面链接即可 -->
+    <!-- 把 qrcode.png 上传到仓库根目录后替换下面链接 -->
     <img src="https://github.com/qwert111treyheh/520-1314/blob/main/qrcode.png" alt="QQ群二维码">
   </div>
   <p style="text-align:center;margin-top:12px">
     <a class="button" href="https://qm.qq.com/cgi-bin/qm/qr?k=5W4NZ-809267403" target="_blank">手动加群</a>
   </p>
+</section>
+
+<!-- 面板 4：名人名言 -->
+<section id="panel-quotes">
+  <h2>名人名言</h2>
+
+  <!-- 拜登 -->
+  <div class="quote-box">
+    <div class="quote-text">We are America, second to none, and we own the finish line. Don't forget it.</div>
+    <div class="quote-trans">我们是美国，首屈一指，我们永远拥有终点线，不要忘记它。</div>
+    <div class="quote-bg">背景：2021 年 3 月 11 日，拜登在白宫就新冠纾困法案发表讲话，用以鼓舞民众信心。</div>
+  </div>
+
+  <!-- 鲁迅 -->
+  <div class="quote-box">
+    <div class="quote-text">世上本没有路，走的人多了，也便成了路。</div>
+    <div class="quote-bg">背景：出自鲁迅 1921 年《故乡》，鼓励青年勇于开创。</div>
+  </div>
+
+  <!-- 爱因斯坦 -->
+  <div class="quote-box">
+    <div class="quote-text">Imagination is more important than knowledge.</div>
+    <div class="quote-trans">想象力比知识更重要。</div>
+    <div class="quote-bg">背景：1931 年爱因斯坦与《The Saturday Evening Post》访谈时提出，强调创造力的价值。</div>
+  </div>
+
+  <!-- 王阳明 -->
+  <div class="quote-box">
+    <div class="quote-text">知行合一。</div>
+    <div class="quote-bg">背景：明代王阳明心学核心命题，倡导认识与实践统一。</div>
+  </div>
 </section>
 
 <!-- 统一弹窗 -->
@@ -135,16 +178,15 @@
 
 <script>
   function showPanel(id){
-    ['repo','plaza','qr'].forEach(p=>{
+    ['repo','plaza','qr','quotes'].forEach(p=>{
       document.getElementById('panel-'+p).classList.toggle('active',p===id);
-      document.querySelectorAll('.tabs button').forEach((btn,i)=>{
-        btn.classList.toggle('active',['repo','plaza','qr'].indexOf(id)===i);
-      });
+      const idx=['repo','plaza','qr','quotes'].indexOf(id);
+      document.querySelectorAll('.tabs button').forEach((btn,i)=>btn.classList.toggle('active',i===idx));
     });
   }
   function openModal(){ document.getElementById('modal').style.display='block'; }
   function closeModal(){ document.getElementById('modal').style.display='none'; }
-  window.onclick=function(e){ if(e.target==document.getElementById('modal')) closeModal(); }
+  window.onclick=function(e){ if(e.target===document.getElementById('modal')) closeModal(); }
 </script>
 
 </body>
