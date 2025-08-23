@@ -45,10 +45,11 @@
     <button onclick="showPanel('plaza')">群友广场</button>
     <button onclick="showPanel('qr')">群组二维码</button>
     <button onclick="showPanel('quotes')">名人名言</button>
+    <button onclick="showPanel('calendar')">日历</button>
   </div>
 </header>
 
-<!-- ================= 面板 1：资源仓库 ================= -->
+<!-- ===== 1 资源仓库 ===== -->
 <section id="panel-repo" class="active">
   <h2>我的世界资源包</h2>
   <p>精选材质、光影、UI，适配基岩多版本。</p>
@@ -63,7 +64,7 @@
   <a class="button" onclick="openModal('模组')">查看模组</a>
 </section>
 
-<!-- ================= 面板 2：群友广场 ================= -->
+<!-- ===== 2 群友广场 ===== -->
 <section id="panel-plaza">
   <h2>群友评论墙</h2>
   <div class="warn">由于 Q 群曾遭恶意飞踢，现人数较少，欢迎加入！</div>
@@ -123,34 +124,12 @@
     <div class="name">阿呆(匿名)</div>
     <p>进群一周就凑齐全套光影，太效率了！</p>
   </div>
-  <!-- ===== Gitalk 自动创建 Issue 完整片段 ===== -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<div id="gitalk-container" style="margin-top:30px;"></div>
-<script>
-const gitalk = new Gitalk({
-  clientID: 'Ov23liCEBAuim12HCFy8',
-  clientSecret: '',                     // 前端可留空
-  repo: '520-1314',
-  owner: 'qwert111treyheh',
-  admin: ['qwert111treyheh'],
-  id: '520-1314-plaza',                          // 固定标识，确保唯一
-  language: 'zh-CN',
-  distractionFreeMode: false,
-  // 关键：首次访问自动创建 Issue
-  createIssueManually: false            // 默认值即可
-});
-gitalk.render('gitalk-container');
-</script>
-<!-- ===== 片段结束 ===== -->
-
 </section>
 
-<!-- ================= 面板 3：群组二维码 ================= -->
+<!-- ===== 3 群组二维码 ===== -->
 <section id="panel-qr">
   <h2>扫码加入群 809267403</h2>
   <div class="qr-wrapper">
-    <!-- 已指向仓库里的二维码文件 -->
     <img src="https://raw.githubusercontent.com/qwert111treyheh/520-1314/main/qrcode_1755900326711.jpg" alt="QQ群二维码">
   </div>
   <p style="text-align:center;margin-top:12px">
@@ -158,35 +137,229 @@ gitalk.render('gitalk-container');
   </p>
 </section>
 
-<!-- ================= 面板 4：名人名言 ================= -->
+<!-- ===== 4 名人名言 ===== -->
 <section id="panel-quotes">
   <h2>名人名言</h2>
-
-  <!-- 拜登 -->
   <div class="quote-box">
     <div class="quote-text">We are America, second to none, and we own the finish line. Don't forget it.</div>
     <div class="quote-trans">我们是美国，首屈一指，我们永远拥有终点线，不要忘记它。</div>
     <div class="quote-bg">背景：2021 年 3 月 11 日，拜登在白宫就新冠纾困法案发表讲话，用以鼓舞民众信心。</div>
   </div>
-
-  <!-- 鲁迅 -->
   <div class="quote-box">
     <div class="quote-text">世上本没有路，走的人多了，也便成了路。</div>
     <div class="quote-bg">背景：出自鲁迅 1921 年《故乡》，鼓励青年勇于开创。</div>
   </div>
-
-  <!-- 爱因斯坦 -->
   <div class="quote-box">
     <div class="quote-text">Imagination is more important than knowledge.</div>
     <div class="quote-trans">想象力比知识更重要。</div>
     <div class="quote-bg">背景：1931 年爱因斯坦与《The Saturday Evening Post》访谈时提出，强调创造力的价值。</div>
   </div>
-
-  <!-- 王阳明 -->
   <div class="quote-box">
     <div class="quote-text">知行合一。</div>
     <div class="quote-bg">背景：明代王阳明心学核心命题，倡导认识与实践统一。</div>
   </div>
+</section>
+
+<!-- ===== 5 日历（boy next door.html 原版整体迁入） ===== -->
+<section id="panel-calendar">
+  <style>
+    /* 全局样式 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f9fc;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .calendar header {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 10px;
+      background: #2c3e50;
+      color: #fff;
+    }
+    .calendar header h2 {
+      margin: 0;
+    }
+    .calendar header button {
+      margin: 0 10px;
+      padding: 5px 10px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .calendar header button:hover {
+      background: #2980b9;
+    }
+    .calendar .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+    .calendar .day {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .calendar .day.active {
+      background: #3498db;
+      color: #fff;
+    }
+    .event-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .event-list li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .event-list li:last-child {
+      border-bottom: none;
+    }
+  </style>
+
+  <div class="container">
+    <h1>不错过每一项活动！</h1>
+    <div class="calendar">
+      <header>
+        <button id="prev-month">上个月</button>
+        <h2 id="month-year"></h2>
+        <button id="next-month">下个月</button>
+      </header>
+      <div class="days">
+        <div>日</div>
+        <div>一</div>
+        <div>二</div>
+        <div>三</div>
+        <div>四</div>
+        <div>五</div>
+        <div>六</div>
+      </div>
+    </div>
+    <div id="events-list">
+      <h2>活动列表</h2>
+      <ul class="event-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    // 获取今天的日期
+    const today = new Date();
+    // 当前显示的月份和年份
+    let currentMonth = today.getMonth();
+    let currentYear = today.getFullYear();
+
+    // 星期几的数组
+    const daysOfWeek = ['日', '一', '二', '三', '四', '五', '六'];
+    const events = {
+      '2025-08-24': '核污水排海二周年',
+    };
+
+    // 渲染日历的函数
+    function renderCalendar(year, month) {
+      // 获取当月第一天是星期几
+      const firstDay = new Date(year, month).getDay();
+      // 获取当月有多少天
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // 获取日历的天数部分
+      const calendarDays = document.querySelector('.calendar .days');
+      // 清空之前的日期
+      calendarDays.innerHTML = '';
+      // 循环生成每一天的日期
+      for (let i = 0; i < daysInMonth + firstDay; i++) {
+        const dayElement = document.createElement('div');
+        // 如果是当月的日期
+        if (i >= firstDay) {
+          dayElement.classList.add('day');          // 设置日期文本
+          dayElement.textContent = i - firstDay + 1;
+          // 构造日期字符串，格式为YYYY-MM-DD
+          const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(i - firstDay + 1).padStart(2, '0')}`;
+          // 如果当天有活动，添加活动标记并绑定点击事件
+          if (events[date]) {
+            dayElement.classList.add('active');
+            dayElement.addEventListener('click', () => showEvents(date));
+          }
+        }
+        // 将生成的日期元素添加到日历中
+        calendarDays.appendChild(dayElement);
+      }
+
+      // 更新头部显示的月份和年份
+      document.getElementById('month-year').textContent = `${daysOfWeek[today.getDay()]} ${today.getDate()} ${year}年${month + 1}月`;
+    }
+
+    // 显示活动的函数
+    function showEvents(date) {
+      // 获取活动列表元素
+      const eventList = document.querySelector('.event-list');
+      // 清空之前的活动列表
+      eventList.innerHTML = '';
+      // 获取当天的活动
+      const event = events[date];
+      // 如果有活动，显示活动内容
+      if (event) {
+        const eventItem = document.createElement('li');
+        eventItem.textContent = event;
+        eventList.appendChild(eventItem);
+      } else {
+        // 如果没有活动，显示“当天没有活动”
+        const noEventItem = document.createElement('li');
+        noEventItem.textContent = '当天没有活动';
+        eventList.appendChild(noEventItem);
+      }
+    }
+
+    // 上个月按钮的点击事件
+    document.getElementById('prev-month').addEventListener('click', () => {
+      // 月份减1
+      currentMonth--;
+      // 如果月份小于0，表示上一年的12月
+      if (currentMonth < 0) {
+        currentMonth = 11; // 月份设置为11（12月）
+        currentYear--; // 年份减1
+      }
+      // 重新渲染日历
+      renderCalendar(currentYear, currentMonth);
+    });
+
+    // 下个月按钮的点击事件
+    document.getElementById('next-month').addEventListener('click', () => {
+      // 月份加1
+      currentMonth++;
+      // 如果月份大于11，表示下一年的1月
+      if (currentMonth > 11) {
+        currentMonth = 0; // 月份设置为0（1月）
+        currentYear++; // 年份加1
+      }
+      // 重新渲染日历
+      renderCalendar(currentYear, currentMonth);
+    });
+
+    // 初始渲染当前月份的日历
+    renderCalendar(currentYear, currentMonth);
+  </script>
 </section>
 
 <!-- 统一弹窗 -->
@@ -207,9 +380,9 @@ gitalk.render('gitalk-container');
 
 <script>
   function showPanel(id){
-    ['repo','plaza','qr','quotes'].forEach(p=>{
+    ['repo','plaza','qr','quotes','calendar'].forEach(p=>{
       document.getElementById('panel-'+p).classList.toggle('active',p===id);
-      const idx=['repo','plaza','qr','quotes'].indexOf(id);
+      const idx=['repo','plaza','qr','quotes','calendar'].indexOf(id);
       document.querySelectorAll('.tabs button').forEach((btn,i)=>btn.classList.toggle('active',i===idx));
     });
   }
