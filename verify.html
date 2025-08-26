@@ -4,29 +4,35 @@
   <meta charset="utf-8">
   <title>卡密验证</title>
   <style>
-    body{font-family:"Segoe UI",sans-serif;text-align:center;margin-top:20vh;background:#f7f9fc}
-    h2{color:#2c3e50}
-    input{padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:16px}
-    button{padding:8px 16px;border:none;border-radius:4px;background:#3498db;color:#fff;font-size:16px;cursor:pointer}
-    button:hover{background:#217dbb}
-    #msg{margin-top:10px;color:red;font-size:14px}
+    body{font-family:"Segoe UI",sans-serif;text-align:center;margin-top:20vh;background:#f7f9fc;color:#2c3e50}
+    #container{transition:opacity .5s}
+    #lockMsg{font-size:28px;color:#e74c3c;margin-top:40vh}
   </style>
 </head>
 <body>
-  <h2>请输入卡密</h2>
-  <input id="cdk" placeholder="火速输入密码" />
-  <button onclick="check()">验证</button>
-  <p id="msg"></p>
+  <!-- 可互动区域 -->
+  <div id="container">
+    <h2>请输入卡密</h2>
+    <input id="cdk" placeholder="火速输入密码" />
+    <button onclick="check()">验证</button>
+    <p id="msg"></p>
+  </div>
 
   <script>
-    const valid = ['hajimi'];   // 唯一卡密
+    let attempts = 0;
+    const valid = ['hajimi'];
     function check(){
       const v = document.getElementById('cdk').value.trim().toLowerCase();
       if(valid.includes(v)){
         localStorage.setItem('pass','1');
         location.href = 'index.html';
       }else{
-        document.getElementById('msg').textContent = '卡密无效，请重试';
+        attempts++;
+        document.getElementById('msg').textContent = `卡密无效（剩余 ${3 - attempts} 次）`;
+        if(attempts >= 3){
+          document.getElementById('container').outerHTML = 
+            '<div id="lockMsg">沙雕，不知道卡密不要瞎鸡巴乱输</div>';
+        }
       }
     }
   </script>
