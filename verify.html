@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <title>卡密验证</title>
-  <style>body{font-family:sans-serif;text-align:center;margin-top:15vh}</style>
+  <style>
+    body{font-family:"Segoe UI",sans-serif;text-align:center;margin-top:20vh;background:#f7f9fc}
+    h2{color:#2c3e50}
+    input{padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:16px}
+    button{padding:8px 16px;border:none;border-radius:4px;background:#3498db;color:#fff;font-size:16px;cursor:pointer}
+    button:hover{background:#217dbb}
+    #msg{margin-top:10px;color:red;font-size:14px}
+  </style>
 </head>
 <body>
   <h2>请输入卡密</h2>
-  <input id="cdk" placeholder="快速输入卡密" />
+  <input id="cdk" placeholder="例如 hajimi" />
   <button onclick="check()">验证</button>
-  <p id="msg" style="color:red"></p>
+  <p id="msg"></p>
+
   <script>
-    const valid = ['hajimi'];
+    const valid = ['hajimi'];   // 唯一卡密
     function check(){
-      const v = document.getElementById('cdk').value.trim().toUpperCase();
+      const v = document.getElementById('cdk').value.trim().toLowerCase();
       if(valid.includes(v)){
         localStorage.setItem('pass','1');
-        location.href='index.html';
+        location.href = 'index.html';
       }else{
-        document.getElementById('msg').textContent='卡密无效';
+        document.getElementById('msg').textContent = '卡密无效，请重试';
       }
     }
   </script>
