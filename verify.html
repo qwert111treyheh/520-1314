@@ -7,11 +7,11 @@
 </head>
 <body>
   <h2>请输入卡密</h2>
-  <input id="cdk" placeholder="例如 A88888888" />
+  <input id="cdk" placeholder="快速输入卡密" />
   <button onclick="check()">验证</button>
   <p id="msg" style="color:red"></p>
   <script>
-    const valid = ['A88888888','5201314','ILOVEYOU'];
+    const valid = ['hajimi'];
     function check(){
       const v = document.getElementById('cdk').value.trim().toUpperCase();
       if(valid.includes(v)){
