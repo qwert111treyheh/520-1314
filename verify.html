@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>卡密验证</title>
+  <style>body{font-family:sans-serif;text-align:center;margin-top:15vh}</style>
+</head>
+<body>
+  <h2>请输入卡密</h2>
+  <input id="cdk" placeholder="例如 A88888888" />
+  <button onclick="check()">验证</button>
+  <p id="msg" style="color:red"></p>
+  <script>
+    const valid = ['A88888888','5201314','ILOVEYOU'];
+    function check(){
+      const v = document.getElementById('cdk').value.trim().toUpperCase();
+      if(valid.includes(v)){
+        localStorage.setItem('pass','1');
+        location.href='index.html';
+      }else{
+        document.getElementById('msg').textContent='卡密无效';
+      }
+    }
+  </script>
+</body>
+</html>
