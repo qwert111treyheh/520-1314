@@ -4,20 +4,49 @@
   <meta charset="utf-8">
   <title>卡密验证</title>
   <style>
-    body{font-family:"Segoe UI",sans-serif;text-align:center;margin-top:20vh;background:#f7f9fc;color:#2c3e50}
-    #container{transition:opacity .5s}
-    #lockMsg{font-size:28px;color:#e74c3c;margin-top:40vh}
+    html,body{margin:0;padding:0;height:100%;font-family:"Segoe UI",sans-serif;color:#fff}
+    #vanta-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+    .card{z-index:1;position:relative;top:50%;left:50%;transform:translate(-50%,-50%);
+          width:320px;padding:40px 30px;background:rgba(0,0,0,.5);border-radius:16px;
+          backdrop-filter:blur(8px);box-shadow:0 0 40px rgba(0,255,255,.25);
+          text-align:center}
+    h2{margin:0 0 20px;font-size:24px;letter-spacing:1px}
+    input{width:100%;padding:12px;border:none;border-radius:8px;font-size:16px;background:rgba(255,255,255,.1);color:#fff}
+    input::placeholder{color:#ccc}
+    .btn-neon{margin-top:20px;padding:12px 0;width:100%;border:none;border-radius:8px;
+              background:linear-gradient(45deg,#0ff,#f0f);color:#fff;font-size:16px;font-weight:bold;
+              cursor:pointer;transition:.3s;box-shadow:0 0 10px #0ff,0 0 20px #0ff}
+    .btn-neon:hover{transform:scale(1.05);box-shadow:0 0 20px #0ff,0 0 40px #0ff}
+    #msg{margin-top:15px;font-size:14px;color:#ff4d4f}
   </style>
 </head>
 <body>
-  <!-- 可互动区域 -->
-  <div id="container">
+  <div id="vanta-bg"></div>
+
+  <div class="card">
     <h2>请输入卡密</h2>
-    <input id="cdk" placeholder="火速输入密码" />
-    <button onclick="check()">验证</button>
+    <input id="cdk" placeholder="将卡密输入在此处" />
+    <button class="btn-neon" onclick="check()">验证</button>
     <p id="msg"></p>
   </div>
 
+  <!-- 动态粒子背景 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      color: 0x00ffff,
+      backgroundColor: 0x0d1117,
+      points: 10.00,
+      maxDistance: 25.00,
+      spacing: 18.00,
+      mouseControls: true,
+      touchControls: true
+    });
+  </script>
+
+  <!-- 卡密验证逻辑 -->
   <script>
     let attempts = 0;
     const valid = ['hajimi'];
@@ -30,8 +59,8 @@
         attempts++;
         document.getElementById('msg').textContent = `卡密无效（剩余 ${3 - attempts} 次）`;
         if(attempts >= 3){
-          document.getElementById('container').outerHTML = 
-            '<div id="lockMsg">沙雕，不知道卡密不要瞎鸡巴乱输</div>';
+          document.querySelector('.card').outerHTML =
+            '<div style="font-size:26px;color:#ff4d4f;margin-top:40vh">不知道卡密瞎几把输什么东西，滚去加群</div>';
         }
       }
     }
