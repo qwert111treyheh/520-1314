@@ -249,7 +249,12 @@ gitalk.render('gitalk-container');
     /* ------------ 简易日历逻辑 ------------ */
     const today = new Date();
     let curY = today.getFullYear(), curM = today.getMonth();
-    const events = { '2025-08-24': '核污水排海二周年' };{ '2025-10-1': '国庆' };{ '2025-10-6': '中秋佳节' };
+   const events = {
+  '2025-08-24': '核污水排海二周年',
+  '2025-10-01': '国庆',
+  '2025-10-06': '中秋佳节'
+};
+
 
     function renderCalendar() {
       const firstDay = new Date(curY, curM, 1).getDay();
