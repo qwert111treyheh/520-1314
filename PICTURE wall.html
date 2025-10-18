@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>肖像墙</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+/* ========== 基础样式 ========== */
+* { box-sizing:border-box;margin:0;padding:0 }
+body {
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  background:#f5f6fa;
+  color:#333;
+  line-height:1.6;
+}
+h1 {
+  text-align:center;
+  padding:40px 15px 20px;
+  font-size:26px;
+  letter-spacing:1px;
+}
+/* 肖像网格 */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:20px;
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 20px 60px;
+}
+/* 单张卡片 */
+.card {
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+  transition:transform .25s;
+  text-align:center;
+}
+.card:hover { transform:translateY(-4px) }
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
+}
+.card .name {
+  font-size:17px;
+  font-weight:600;
+  margin:12px 0 4px;
+}
+.card .desc {
+  font-size:14px;
+  color:#666;
+  padding:0 10px 18px;
+}
+/* 返回按钮 */
+.back {
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:#0089ff;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:25px;
+  text-decoration:none;
+  font-size:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+.back:hover { background:#0070df }
+</style>
+</head>
+
+<body>
+<h1>肖像墙</h1>
+
+<section class="grid">
+  <!-- ===== 空位 1 ===== -->
+  <div class="card">
+    <!-- TODO：替换头像 -->
+    <img src="https://via.placeholder.com/300x300?text=1" alt="昵称1">
+    <!-- TODO：替换昵称 -->
+    <div class="name">昵称1</div>
+    <!-- TODO：替换一句话介绍 -->
+    <div class="desc">一句话介绍1</div>
+  </div>
+
+  <!-- ===== 空位 2 ===== -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300x300?text=2" alt="昵称2">
+    <div class="name">昵称2</div>
+    <div class="desc">一句话介绍2</div>
+  </div>
+
+  <!-- ===== 空位 3 ===== -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300x300?text=3" alt="昵称3">
+    <div class="name">昵称3</div>
+    <div class="desc">一句话介绍3</div>
+  </div>
+
+  <!-- ===== 空位 4 ===== -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300x300?text=4" alt="昵称4">
+    <div class="name">昵称4</div>
+    <div class="desc">一句话介绍4</div>
+  </div>
+
+  <!-- ===== 空位 5 ===== -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300x300?text=5" alt="昵称5">
+    <div class="name">昵称5</div>
+    <div class="desc">一句话介绍5</div>
+  </div>
+
+  <!-- ===== 空位 6 ===== -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300x300?text=6" alt="昵称6">
+    <div class="name">昵称6</div>
+    <div class="desc">一句话介绍6</div>
+  </div>
+</section>
+
+<!-- 返回上一页 -->
+<a class="back" href="javascript:history.back()">← 返回</a>
+</body>
+</html>
