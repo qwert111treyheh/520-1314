@@ -158,10 +158,11 @@ gitalk.render('gitalk-container');
 <!-- =========================================================
      栏目 3：群组二维码（与原版完全一致，未删减）
      ========================================================= -->
+<!-- ========== 原位置直接整体替换 ========== -->
 <section id="panel-qr">
 
   <!-- 1. 户晨风先生 -->
-  <h3 style="text-align:center;margin:0 0 6px;font-size:18px">户晨风</h3>
+  <h3 style="text-align:center;margin:0 0 6px;font-size:18px">户晨风先生</h3>
 
   <!-- 2. 顶部提示图 -->
   <div style="text-align:center">
@@ -174,22 +175,137 @@ gitalk.render('gitalk-container');
   <h2 style="text-align:center;margin:12px 0 6px">扫码加入群 809267403</h2>
 
   <!-- 4. 二维码 -->
-  <div style="text-align:center">
+  <div id="qr-box" style="text-align:center">
     <img src="https://raw.githubusercontent.com/qwert111treyheh/520-1314/main/qrcode_1755900326711.jpg"
          alt="QQ群二维码"
          style="max-width:260px;width:100%;border-radius:8px">
   </div>
 
- <!-- 5. 双按钮 -->
-<p style="text-align:center;margin-top:12px;display:flex;justify-content:center;gap:12px">
-  <a class="button"
-     href="https://qun.qq.com/universal-share/share?ac=1&authKey=TGqfNigSubsadvD5JKvSB5bmBCoW2o1J%2Ff9F%2B%2BQzzgf09HMV%2FJsD0YHkwLsQzz%2BR&busi_data=eyJncm91cENvZGUiOiI4MDkyNjc0MDMiLCJ0b2tlbiI6Ikx1bG83QkIwbWZ4Q3ZuMmhMNkU4MGlzYmdJZEYvL2pWbmdKd3huSDRaS0pLdlBCRmRRclFGRHhBeGFuUmdiRGwiLCJ1aW4iOiIyODk2OTMzNjA4In0%3D&data=lQJ4hnzjYhg__SiTSRMAHsJ95nhDKzQnjrTdF4uGbiQcpw_4pCB7SX3ZdKUxSmch1rgxFVQc0LfwLOLeC3o5hQ&svctype=4&tempid=h5_group_info"
-     target="_blank">手动加群</a>
+  <!-- 5. 按钮组 -->
+  <p style="text-align:center;margin-top:12px;display:flex;justify-content:center;gap:12px">
+    <a class="button"
+       href="https://qun.qq.com/universal-share/share?ac=1&authKey=TGqfNigSubsadvD5JKvSB5bmBCoW2o1J%2Ff9F%2B%2BQzzgf09HMV%2FJsD0YHkwLsQzz%2BR&busi_data=eyJncm91cENvZGUiOiI4MDkyNjc0MDMiLCJ0b2tlbiI6Ikx1bG83QkIwbWZ4Q3ZuMmhMNkU4MGlzYmdJZEYvL2pWbmdKd3huSDRaS0pLdlBCRmRRclFGRHhBeGFuUmdiRGwiLCJ1aW4iOiIyODk2OTMzNjA4In0%3D&data=lQJ4hnzjYhg__SiTSRMAHsJ95nhDKzQnjrTdF4uGbiQcpw_4pCB7SX3ZdKUxSmch1rgxFVQc0LfwLOLeC3o5hQ&svctype=4&tempid=h5_group_info"
+       target="_blank">手动加群</a>
 
-  <a class="button"
-     href="https://qwert111treyheh.github.io/hajimi/"
-     target="_blank">肖像墙</a>
-</p>
+    <!-- 点它直接原地切换成肖像墙 -->
+    <a class="button" href="javascript:showWall()">肖像墙</a>
+  </p>
+
+</section>
+
+<!-- ================= 肖像墙（默认隐藏） ================= -->
+<section id="wall" style="display:none;text-align:center;padding:0 20px 40px">
+  <h2>肖像墙</h2>
+
+  <!-- 网格 -->
+  <div class="grid">
+    <!-- ===== 空位 1 ===== -->
+    <div class="card">
+      <img src="https://github.com/qwert111treyheh/520-1314/raw/main/Screenshot_20251005_145408_tv.danmaku.bili_edit_35810012408597.jpg" alt="户晨风">
+      <div class="name">户晨风</div>
+      <div class="desc">坚定的私有化战士</div>
+    </div>
+
+    <!-- ===== 空位 2 ===== -->
+    <div class="card">
+      <img src="https://via.placeholder.com/300x300?text=2" alt="昵称2">
+      <div class="name">昵称2</div>
+      <div class="desc">一句话介绍2</div>
+    </div>
+
+    <!-- ===== 空位 3 ===== -->
+    <div class="card">
+      <img src="https://via.placeholder.com/300x300?text=3" alt="昵称3">
+      <div class="name">昵称3</div>
+      <div class="desc">一句话介绍3</div>
+    </div>
+
+    <!-- ===== 空位 4 ===== -->
+    <div class="card">
+      <img src="https://via.placeholder.com/300x300?text=4" alt="昵称4">
+      <div class="name">昵称4</div>
+      <div class="desc">一句话介绍4</div>
+    </div>
+
+    <!-- ===== 空位 5 ===== -->
+    <div class="card">
+      <img src="https://via.placeholder.com/300x300?text=5" alt="昵称5">
+      <div class="name">昵称5</div>
+      <div class="desc">一句话介绍5</div>
+    </div>
+
+    <!-- ===== 空位 6 ===== -->
+    <div class="card">
+      <img src="https://via.placeholder.com/300x300?text=6" alt="昵称6">
+      <div class="name">昵称6</div>
+      <div class="desc">一句话介绍6</div>
+    </div>
+  </div>
+
+  <!-- 返回按钮 -->
+  <p style="margin-top:20px">
+    <a class="button" href="javascript:showQR()">← 返回加群</a>
+  </p>
+</section>
+
+<!-- ================= 逻辑 + 样式 ================= -->
+<style>
+/* 按钮基础样式 */
+.button{
+  display:inline-block;
+  padding:8px 18px;
+  background:#0089ff;
+  color:#fff;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:14px;
+}
+.button:hover{ background:#0070df }
+
+/* 肖像墙网格 */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:20px;
+  max-width:1000px;
+  margin:20px auto 0;
+}
+.card{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.card .name{
+  font-size:17px;
+  font-weight:600;
+  margin:10px 0 4px;
+}
+.card .desc{
+  font-size:14px;
+  color:#666;
+  padding:0 10px 18px;
+}
+</style>
+
+<script>
+// 切到肖像墙
+function showWall(){
+  document.getElementById('panel-qr').style.display='none';
+  document.getElementById('wall').style.display='block';
+}
+// 切回二维码
+function showQR(){
+  document.getElementById('wall').style.display='none';
+  document.getElementById('panel-qr').style.display='block';
+}
+</script>
+
 
 <!-- =========================================================
      栏目 4：名人名言（与原版完全一致，未删减）
